@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Address Book</title>
+    <link href="./AddressBook.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Address Book</h1>
+        <div id="search">Search</div>
+    </header>
+
+    <main>
+        <div id="add_contact">Add
+            <form id="addressForm" action="./AddressBook.html" method="POST">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" value="name" placeholder="Name">
+                        </td>
+                        <td>
+                            <label for="surname">Surname</label>
+                            <input type="text" id="surname" name="surname" value="surname" placeholder="Surname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="phone-number">Phone Number</label>
+                            <input type="text" id="phone-number" name="phoneNumber" value="phone number"
+                                placeholder="Phone Number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" value="address" placeholder="Address"
+                                rows="2"></textarea>
+                        </td>
+                    </tr>
+                </table>
+
+                <input id="add" type="submit" value="Add">
+            </form>
+
+        </div>
+
+        <div id="contacts"> All Addresses
+
+            <table>
+                <tbody id="contacts-table">
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./AddressBook.js"></script>
+</body>
+
+</html>
