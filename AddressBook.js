@@ -8,42 +8,27 @@ const addressFactory = (name, surname, phoneNumber, address) => {
     }
 };
 
-function addAddress() {
-    console.log("test2");
-    $('#contacts-table').append(`
-    <tr id="R${++rowIdx}">
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Surname</td>
-            </tr>
-            <tr>
-                <td>Phone Number</td>
-            </tr>
-            <tr>
-                <td>Address</td>
-            </tr>
-        </table>
-    </tr>
-    `)
-
-};
-
-
 
 
 $(document).ready(function () {
 
-    let rowIdx = 0;
+
+    function addAddress() {
 
 
-    let newAddress = $("<table>");
-    newAddress.text("test");
-    $("#contacts-table").append(newAddress);
+        let $inputName = $(this).find("#name");
+        let inputName = $inputName.val();
+
+        let htmlTable = '<tr><table><tr><td>Name</td><td>Surname</td></tr><tr><td>Phone Number</td></tr><tr><td>Address</td></tr></table></tr>';
+
+        $('#contacts-table').append(htmlTable);
+
+    };
 
 
-    $(this).find('#add').on('click', function () {
-        console.log("test");
+
+    $(this).find('#test-button').on('click', function (event) {
+        event.preventDefault();
         addAddress();
     });
 
