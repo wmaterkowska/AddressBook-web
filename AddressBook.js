@@ -13,24 +13,41 @@ const addressFactory = (name, surname, phoneNumber, address) => {
 $(document).ready(function () {
 
 
-    function addAddress() {
+    function addAddress(name, surname, phone, address, id) {
 
+        let addressTable = '<tr id="contact-table' + id + '"><table><tr><td>' + name + '</td><td>'
+            + surname + '</td><td rowspan="3">test</td></tr><tr><td>' + phone
+            + '</td></tr><tr><td>' + address + '</td></tr></table></tr>';
 
-        let $inputName = $(this).find("#name");
-        let inputName = $inputName.val();
-
-        let htmlTable = '<tr><table><tr><td>Name</td><td>Surname</td></tr><tr><td>Phone Number</td></tr><tr><td>Address</td></tr></table></tr>';
-
-        $('#contacts-table').append(htmlTable);
+        $('#contacts-table').append(addressTable);
 
     };
 
 
 
-    $(this).find('#test-button').on('click', function (event) {
+    $('#add-button').on('click', function (event) {
         event.preventDefault();
-        addAddress();
+
+        let id = 0;
+
+        let $name = $("#name");
+        let nameInput = $name.val();
+
+        let $surname = $("#surname");
+        let surnameInput = $surname.val();
+
+        let $phone = $("#phone-number");
+        let phoneInput = $phone.val();
+
+        let $address = $("#address");
+        let addressInput = $address.val();
+
+
+        addAddress(nameInput, surnameInput, phoneInput, addressInput, ++id);
+
+
     });
+
 
 
 
