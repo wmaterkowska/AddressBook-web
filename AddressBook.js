@@ -11,14 +11,11 @@ const addressFactory = (name, surname, phoneNumber, address) => {
 let contacts = [];
 
 function search() {
-    // let input = $("#search").val();
-    // input = input.toLowerCase();
-    // let contacts = $('.contact');
+    // https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/
 
     let input = document.getElementById('searchbar').value;
     input = input.toLowerCase();
     let contacts = document.getElementsByClassName('contact');
-    console.log("test" + contacts);
 
     for (let i = 0; i < contacts.length; i++) {
         if (!contacts[i].innerHTML.toLowerCase().includes(input)) {
@@ -33,25 +30,28 @@ function search() {
 
 $(document).ready(function () {
 
+    let id = 0;
 
     function addContact(name, surname, phone, address, id) {
 
-        let contactTable = '<tr id="contact-table' + id + '" class = "contact"><td><table><tr><td>' + name + '</td><td>'
-            + surname + '</td></tr><tr><td>' + phone
-            + '</td></tr><tr><td>' + address + '</td></tr></table></td><td><button id="delete">delete</button></td></tr>';
+        let contactTable = '<tr id="contact' + id +
+            '" class="element contact"><td class="contact" id="contact-cell"><table><tr><td>' + name + '</td><td>'
+            + surname + '</td></tr><tr><td colspan="2">' + phone
+            + '</td></tr><tr><td colspan="2">' + address
+            + '</td></tr></table></td><td id="delete-cell"><button id="delete">delete</button></td></tr>';
+        let $contact = $(contactTable);
+        $contact.attr("class", "contact");
 
         $('#contacts-table').append(contactTable);
 
         let newContact = addressFactory(name, surname, phone, address);
         contacts.push(newContact);
+        // console.log(contacts);
     };
-
 
 
     $('#add-button').on('click', function (event) {
         event.preventDefault();
-
-        let id = 0;
 
         let $name = $("#name");
         let nameInput = $name.val();
@@ -67,6 +67,9 @@ $(document).ready(function () {
 
 
         addContact(nameInput, surnameInput, phoneInput, addressInput, ++id);
+
+        document.getElementById("address-form").reset();
+
     });
 
 

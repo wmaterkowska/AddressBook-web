@@ -1,20 +1,84 @@
-body {
-    background: #5D868D;
+* {
     margin: 0;
     padding: 0;
+    /* border: black 1px solid; */
+}
+
+body {
+    background: #5D868D;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 header {
-    width: 20%;
+    width: fit-content;
     align-self: center;
-    align-items: center;
+    align-content: center;
+    font-size: 100%;
+    margin: 2% auto;
 }
-
 
 h1 {
-    background: #FFFFFF;
+    white-space: nowrap;
+    font-weight: lighter;
+    text-align: center;
 }
 
-table {
-    width: 20%;
+main {
+    width: fit-content;
+    align-self: center;
+    margin: 0 auto;
 }
+
+.element {
+    width: 350px;
+    background: white;
+    margin: 1.5%;
+    padding: 1.5%;
+    border-radius: 5px;
+}
+
+.contact td {
+    width: 400px;
+}
+
+#contacts-table {
+    width: 350px;
+    table-layout: fixed;
+    margin: 1.5%;
+    padding: 1.5%;
+}
+
+#delete-cell {
+    align-items: center;
+    max-width: 50px;
+}
+
+#delete {
+    width: 45px;
+    text-align: center;
+}
+
+#
+/*
+
+<tr id="contact-table' + id + '" class="element">
+    <td>
+        <table>
+            <tr>
+                <td>' + name + '</td>
+                <td>'+ surname + '</td>
+            </tr>
+            <tr>
+                <td colspan="2">' + phone + '</td>
+            </tr>
+            <tr>
+                <td colspan="2">' + address + '</td>
+            </tr>
+        </table>
+    </td>
+    <td>
+        <button id="delete">delete</button>
+    </td>
+</tr>
+
+*/
