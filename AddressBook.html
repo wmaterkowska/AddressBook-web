@@ -9,11 +9,13 @@
 <body>
     <header>
         <h1>Address Book</h1>
-        <div id="search">Search</div>
+        <div id="search">
+            <input type="text" id="searchbar" onkeyup="search()" placeholder="Search...">
+        </div>
     </header>
 
     <main>
-        <div id="add_contact">Add
+        <div id="add_contact">
             <form id="address-form" action="./AddressBook.html" method="POST">
                 <table>
                     <tr>

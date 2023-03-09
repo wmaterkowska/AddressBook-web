@@ -8,19 +8,42 @@ const addressFactory = (name, surname, phoneNumber, address) => {
     }
 };
 
+let contacts = [];
+
+function search() {
+    // let input = $("#search").val();
+    // input = input.toLowerCase();
+    // let contacts = $('.contact');
+
+    let input = document.getElementById('searchbar').value;
+    input = input.toLowerCase();
+    let contacts = document.getElementsByClassName('contact');
+    console.log("test" + contacts);
+
+    for (let i = 0; i < contacts.length; i++) {
+        if (!contacts[i].innerHTML.toLowerCase().includes(input)) {
+            contacts[i].style.display = "none";
+        } else {
+            contacts[i].style.display = "table";
+        }
+    }
+
+};
 
 
 $(document).ready(function () {
 
 
-    function addAddress(name, surname, phone, address, id) {
+    function addContact(name, surname, phone, address, id) {
 
-        let addressTable = '<tr id="contact-table' + id + '"><table><tr><td>' + name + '</td><td>'
-            + surname + '</td><td rowspan="3">test</td></tr><tr><td>' + phone
-            + '</td></tr><tr><td>' + address + '</td></tr></table></tr>';
+        let contactTable = '<tr id="contact-table' + id + '" class = "contact"><td><table><tr><td>' + name + '</td><td>'
+            + surname + '</td></tr><tr><td>' + phone
+            + '</td></tr><tr><td>' + address + '</td></tr></table></td><td><button id="delete">delete</button></td></tr>';
 
-        $('#contacts-table').append(addressTable);
+        $('#contacts-table').append(contactTable);
 
+        let newContact = addressFactory(name, surname, phone, address);
+        contacts.push(newContact);
     };
 
 
@@ -43,12 +66,15 @@ $(document).ready(function () {
         let addressInput = $address.val();
 
 
-        addAddress(nameInput, surnameInput, phoneInput, addressInput, ++id);
-
-
+        addContact(nameInput, surnameInput, phoneInput, addressInput, ++id);
     });
 
 
+    $("#contacts-table").on('click', '#delete', function () {
+
+        $(this).parents('tr').remove();
+
+    });
 
 
 });
