@@ -9,52 +9,50 @@
 <body>
     <header>
         <h1 class="element">Address Book</h1>
+
         <div id="search" class="element">
             <input type="text" id="searchbar" onkeyup="search()" placeholder="Search...">
         </div>
     </header>
 
     <main>
-        <div id="add_contact" class="element">
-            <form id="address-form" action="./AddressBook.html" method="POST">
+        <div class="element">
+            <button id="show-contact-form">Add Contact</button>
+        </div>
+
+        <div id="add-contact" class="element">
+            <form id="contact-form" action="./AddressBook.html" method="POST">
                 <table>
                     <tr>
                         <td>
-                            <label for="name">Name</label>
+                            <!-- <label for="name">Name</label> -->
                             <input type="text" id="name" name="name" placeholder="Name">
                         </td>
                         <td>
-                            <label for="surname">Surname</label>
+                            <!-- <label for="surname">Surname</label> -->
                             <input type="text" id="surname" name="surname" placeholder="Surname">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <label for="phone-number">Phone Number</label>
+                            <!-- <label for="phone-number">Phone Number</label> -->
                             <input type="text" id="phone-number" name="phoneNumber" placeholder="Phone Number">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <label for="address">Address</label>
+                            <!-- <label for="address">Address</label> -->
                             <textarea id="address" name="address" placeholder="Address" rows="2"></textarea>
                         </td>
                     </tr>
                 </table>
 
                 <button id="add-button"><input id="add-input" type="submit" value="Add"></button>
-
-
             </form>
         </div>
 
         <div id="contacts">
 
-            <table>
-                <tbody id="contacts-table" class="element">
-
-                </tbody>
-            </table>
         </div>
 
     </main>
