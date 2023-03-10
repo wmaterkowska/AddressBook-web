@@ -1,5 +1,5 @@
 // Write a message to the console.
-const addressFactory = (name, surname, phoneNumber, address) => {
+const contactFactory = (name, surname, phoneNumber, address) => {
     return {
         name: name,
         surname: surname,
@@ -31,9 +31,26 @@ function search() {
 
 $(document).ready(function () {
 
-    let id = 0;
 
-    function addContact(name, surname, phone, address, id) {
+    function validationOfContact(name, surname, phone, address) {
+
+        if (name === '') { alert("Add name."); }
+
+        if (surname === '') { alert("Add surname."); }
+
+        if (!phone.match("[0-9]{3}-[0-9]{3}-[0-9]{3}")) {
+            alert("Use format: xxx-xxx-xxx");
+        }
+
+        if (name !== '' && surname !== '' && phone.match("[0-9]{3}-[0-9]{3}-[0-9]{3}")) {
+            return true;
+        }
+
+        return false;
+    };
+
+
+    function addContact(name, surname, phone, address) {
 
         let contact = '<section class="element contact" > <p>' + name + ' ' + surname +
             '</p> <p>' + phone + '</p><p>' + address +
@@ -41,9 +58,9 @@ $(document).ready(function () {
 
         $('#contacts').append(contact);
 
-        let newContact = addressFactory(name, surname, phone, address);
+        let newContact = contactFactory(name, surname, phone, address);
         contacts.push(newContact);
-        // console.log(contacts);
+        console.log(contacts);
     };
 
 
@@ -54,7 +71,7 @@ $(document).ready(function () {
     })
 
 
-    $('#add-button').on('click', function (event) {
+    $('#add-button').on('click', function add(event) {
         event.preventDefault();
 
         let $name = $("#name");
@@ -70,11 +87,13 @@ $(document).ready(function () {
         let addressInput = $address.val();
 
 
-        addContact(nameInput, surnameInput, phoneInput, addressInput, ++id);
+        if (validationOfContact(nameInput, surnameInput, phoneInput, addressInput)) {
 
-        document.getElementById("contact-form").reset();
+            addContact(nameInput, surnameInput, phoneInput, addressInput);
+            document.getElementById("contact-form").reset();
+            $('#add-contact').slideUp(400);
+        }
 
-        $('#add-contact').slideUp(300);
     });
 
 

@@ -106,6 +106,12 @@ textarea:focus {
     color: #5D868D;
 }
 
+
+alert {
+    max-width: 100px;
+}
+
+
 /*
 
 <tr id="contact-table' + id + '" class="element">
