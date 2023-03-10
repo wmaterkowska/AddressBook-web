@@ -32,7 +32,7 @@ function search() {
 $(document).ready(function () {
 
 
-    function validationOfContact(name, surname, phone, address) {
+    function validationOfContact(name, surname, phone) {
 
         let pattern = "^([0-9\(\)\/\+ \-]*)$";
 
@@ -43,6 +43,16 @@ $(document).ready(function () {
         if (!phone.match(pattern)) {
             alert("Add phone number.");
         }
+
+
+        for (let i = 0; i < contacts.length; i++) {
+            if (name.toLowerCase() === contacts[i].name.toLowerCase()
+                && surname.toLowerCase() === contacts[i].surname.toLowerCase()) {
+                alert(`${name} ${surname} already is in your Address Book.`)
+                return false;
+            }
+        }
+
 
         if (name !== '' && surname !== '' && phone.match(pattern)) {
             return true;
@@ -60,7 +70,7 @@ $(document).ready(function () {
 
         $('#contacts').append(contact);
 
-        let newContact = contactFactory(name, surname, phone, address);
+        let newContact = contactFactory(name, surname, phone);
         contacts.push(newContact);
         console.log(contacts);
     };
