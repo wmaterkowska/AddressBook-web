@@ -34,15 +34,17 @@ $(document).ready(function () {
 
     function validationOfContact(name, surname, phone, address) {
 
+        let pattern = "^([0-9\(\)\/\+ \-]*)$";
+
         if (name === '') { alert("Add name."); }
 
         if (surname === '') { alert("Add surname."); }
 
-        if (!phone.match("[0-9]{3}-[0-9]{3}-[0-9]{3}")) {
-            alert("Use format: xxx-xxx-xxx");
+        if (!phone.match(pattern)) {
+            alert("Add phone number.");
         }
 
-        if (name !== '' && surname !== '' && phone.match("[0-9]{3}-[0-9]{3}-[0-9]{3}")) {
+        if (name !== '' && surname !== '' && phone.match(pattern)) {
             return true;
         }
 
