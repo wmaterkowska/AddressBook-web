@@ -51,18 +51,18 @@ main {
 
 #add-contact {
     display: none;
-
 }
 
-label {
+/* label {
     font-size: 80%;
-}
+} */
 
 input,
 textarea {
     border: #5D868D 2px solid;
     width: 345px;
     margin-bottom: 2%;
+    white-space: pre-wrap;
 }
 
 input:focus,
@@ -106,32 +106,36 @@ textarea:focus {
     color: #5D868D;
 }
 
-
-alert {
-    max-width: 100px;
+.contact p {
+    width: inherit;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    white-space: pre;
+    margin: 1%;
 }
 
 
-/*
 
-<tr id="contact-table' + id + '" class="element">
-    <td>
-        <table>
-            <tr>
-                <td>' + name + '</td>
-                <td>'+ surname + '</td>
-            </tr>
-            <tr>
-                <td colspan="2">' + phone + '</td>
-            </tr>
-            <tr>
-                <td colspan="2">' + address + '</td>
-            </tr>
-        </table>
-    </td>
-    <td>
-        <button id="delete">delete</button>
-    </td>
-</tr>
+footer {
+    background-color: #5D868D;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 
-*/
+    font-size: 60%;
+
+}
+
+footer p,
+a {
+    display: inline;
+    text-decoration: none;
+    color: white;
+}
+
+#up {
+    font-size: 300%;
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+}
