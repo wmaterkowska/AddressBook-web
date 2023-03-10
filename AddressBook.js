@@ -37,9 +37,7 @@ $(document).ready(function () {
 
         let contact = '<section class="element contact" > <p>' + name + ' ' + surname +
             '</p> <p>' + phone + '</p><p>' + address +
-            '</p>  <button id="delete">delete</button> </section>'
-
-
+            '</p>  <button id="delete">Delete</button> </section>'
 
         $('#contacts').append(contact);
 
