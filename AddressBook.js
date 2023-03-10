@@ -34,20 +34,22 @@ $(document).ready(function () {
 
     function addContact(name, surname, phone, address, id) {
 
-        let contactTable = '<tr id="contact' + id +
-            '" class="element contact"><td class="contact" id="contact-cell"><table><tr><td>' + name + '</td><td>'
-            + surname + '</td></tr><tr><td colspan="2">' + phone
-            + '</td></tr><tr><td colspan="2">' + address
-            + '</td></tr></table></td><td id="delete-cell"><button id="delete">delete</button></td></tr>';
-        let $contact = $(contactTable);
+        let contact = '<section class="element contact" > <p>' + name + ' ' + surname +
+            '</p> <p>' + phone + '</p><p>' + address +
+            '</p>  <button id="delete">delete</button> </section>'
+        let $contact = $(contact);
         $contact.attr("class", "contact");
 
-        $('#contacts-table').append(contactTable);
+        $('#contacts').append(contact);
 
         let newContact = addressFactory(name, surname, phone, address);
         contacts.push(newContact);
         // console.log(contacts);
     };
+
+
+
+
 
 
     $('#add-button').on('click', function (event) {
@@ -73,9 +75,9 @@ $(document).ready(function () {
     });
 
 
-    $("#contacts-table").on('click', '#delete', function () {
+    $("#contacts").on('click', '#delete', function () {
 
-        $(this).parents('tr').remove();
+        $(this).parents('section').remove();
 
     });
 
