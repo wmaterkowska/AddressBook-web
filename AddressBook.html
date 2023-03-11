@@ -7,55 +7,55 @@
 </head>
 
 <body>
-    <div id="background">
-        <header>
-            <h1 id="title" class="element">Address Book</h1>
+    <div id="background"></div>
+    <header>
+        <h1 id="title" class="element">Address Book</h1>
 
-            <div id="search" class="element">
-                <input type="text" id="searchbar" onkeyup="search()" placeholder="Search...">
-            </div>
-        </header>
+        <div id="search" class="element">
+            <input type="text" id="searchbar" onkeyup="search()" placeholder="Search...">
+        </div>
+    </header>
 
-        <main>
-            <div class="element">
-                <button id="show-contact-form">Add Contact</button>
-            </div>
+    <main>
+        <div class="element">
+            <button id="show-contact-form">Add Contact</button>
+        </div>
 
-            <div id="add-contact" class="element">
-                <form id="contact-form" method="POST" onsubmit="return add(event);">
+        <div id="add-contact" class="element">
+            <form id="contact-form" method="POST" onsubmit="return add(event);">
 
-                    <!-- <label for="name">Name</label> -->
-                    <input type="text" id="name" name="name" placeholder="Name">
+                <!-- <label for="name">Name</label> -->
+                <input type="text" id="name" name="name" placeholder="Name">
 
-                    <!-- <label for="surname">Surname</label> -->
-                    <input type="text" id="surname" name="surname" placeholder="Surname">
+                <!-- <label for="surname">Surname</label> -->
+                <input type="text" id="surname" name="surname" placeholder="Surname">
 
-                    <!-- <label for="phone-number">Phone Number</label> -->
-                    <input type="tel" id="phone-number" name="phoneNumber" placeholder="Phone Number">
+                <!-- <label for="phone-number">Phone Number</label> -->
+                <input type="tel" id="phone-number" name="phoneNumber" placeholder="Phone Number">
 
-                    <!-- <label for="address">Address</label> -->
-                    <textarea id="address" name="address" placeholder="Address" rows="2"></textarea>
+                <!-- <label for="address">Address</label> -->
+                <textarea id="address" name="address" placeholder="Address" rows="2"></textarea>
 
-                    <button id="add-button"><input id="add-input" type="submit" value="Add"></button>
-                </form>
-            </div>
+                <button id="add-button"><input id="add-input" type="submit" value="Add"></button>
+            </form>
+        </div>
 
-            <div id="contacts">
+        <div id="contacts">
 
-            </div>
+        </div>
 
-        </main>
+    </main>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./AddressBook.js"></script>
+    <footer>
+        <p>Author: Weronika Materkowska: <a href="mailto:w.m.materkowska@gmail.com">w.m.materkowska@gmail.com</a>,
+            2023
+        </p>
+        <a href="#title" id="up">^</a>
+    </footer>
 
-        <footer>
-            <p>Author: Weronika Materkowska: <a href="mailto:w.m.materkowska@gmail.com">w.m.materkowska@gmail.com</a>,
-                2023
-            </p>
-            <a href="#title" id="up">^</a>
-        </footer>
-    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./AddressBook.js"></script>
 </body>
 
 </html>

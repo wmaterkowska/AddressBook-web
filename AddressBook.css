@@ -4,9 +4,22 @@
     /* border: black 1px solid; */
 }
 
+
 body {
     background: #5D868D;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#background {
+    background-color: #6DACD3;
+    width: 400px;
+    height: 100vh;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: -100;
+    left: 50%;
+    transform: translate(-47.5%, 0);
 }
 
 header {
@@ -32,6 +45,7 @@ main {
     width: fit-content;
     align-self: center;
     margin: 0 auto;
+    scroll-behavior: auto;
 }
 
 .element {
@@ -117,13 +131,10 @@ textarea:focus {
 
 
 footer {
-    background-color: #5D868D;
     position: fixed;
     bottom: 0;
     width: 100%;
-
     font-size: 60%;
-
 }
 
 footer p,
