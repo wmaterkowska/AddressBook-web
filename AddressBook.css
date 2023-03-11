@@ -6,12 +6,12 @@
 
 
 body {
-    background: #5D868D;
+    background: #6DACD3;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #background {
-    background-color: #6DACD3;
+    background-color: #5D868D;
     width: 400px;
     height: 100vh;
     min-height: 100vh;
@@ -35,6 +35,7 @@ h1 {
     text-align: center;
 }
 
+
 #searchbar {
     width: inherit;
     margin-right: 5px;
@@ -56,8 +57,11 @@ main {
     border-radius: 5px;
 }
 
+#show-form {
+    margin-bottom: 5%;
+}
 
-#show-contact-form {
+#show-contact-form-button {
     width: 350px;
     border: 0;
     background-color: white;
@@ -126,9 +130,22 @@ textarea:focus {
     word-break: break-all;
     white-space: pre;
     margin: 1%;
+    font-size: 80%;
 }
 
+#contact-phone,
+#contact-address,
+#delete {
+    display: none;
+}
 
+#name-surname {
+    width: 345px;
+    background-color: white;
+    border: 0;
+    font-size: 90%;
+    text-align: left;
+}
 
 footer {
     position: fixed;
