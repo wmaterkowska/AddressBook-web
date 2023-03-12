@@ -138,6 +138,10 @@ textarea:focus {
     font-size: 80%;
 }
 
+.contact-label {
+    display: none;
+}
+
 #contact-phone,
 #contact-address,
 #delete {
