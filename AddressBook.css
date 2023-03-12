@@ -37,28 +37,26 @@ main {
     border-radius: 5px;
 }
 
-.contact td {
-    width: 400px;
-}
 
-#contacts-table {
+#add-button {
     width: 350px;
-    table-layout: fixed;
-    margin: 1.5%;
-    padding: 1.5%;
 }
 
-#delete-cell {
-    align-items: center;
-    max-width: 50px;
+#add-input {
+    border: 0;
+}
+
+
+
+.contact p {
+    color: blueviolet;
 }
 
 #delete {
-    width: 45px;
-    text-align: center;
+    position: relative;
+    left: 300px;
 }
 
-#
 /*
 
 <tr id="contact-table' + id + '" class="element">
