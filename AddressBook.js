@@ -44,7 +44,6 @@ $(document).ready(function () {
             alert("Add phone number.");
         }
 
-
         for (let i = 0; i < contacts.length; i++) {
             if (name.toLowerCase() === contacts[i].name.toLowerCase()
                 && surname.toLowerCase() === contacts[i].surname.toLowerCase()) {
@@ -52,7 +51,6 @@ $(document).ready(function () {
                 return false;
             }
         }
-
 
         if (name !== '' && surname !== '' && phone.match(pattern)) {
             return true;
@@ -79,7 +77,7 @@ $(document).ready(function () {
     $('#show-contact-form').on('click', function (event) {
         event.preventDefault();
 
-        $('#add-contact').slideDown(200);
+        $('#add-contact').slideToggle(200);
     })
 
 

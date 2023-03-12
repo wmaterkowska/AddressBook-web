@@ -7,8 +7,9 @@
 </head>
 
 <body>
+    <div id="background"></div>
     <header>
-        <h1 class="element">Address Book</h1>
+        <h1 id="title" class="element">Address Book</h1>
 
         <div id="search" class="element">
             <input type="text" id="searchbar" onkeyup="search()" placeholder="Search...">
@@ -44,6 +45,14 @@
         </div>
 
     </main>
+
+    <footer>
+        <p>Author: Weronika Materkowska: <a href="mailto:w.m.materkowska@gmail.com">w.m.materkowska@gmail.com</a>,
+            2023
+        </p>
+        <a href="#title" id="up">^</a>
+    </footer>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./AddressBook.js"></script>
