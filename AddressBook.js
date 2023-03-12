@@ -1,5 +1,5 @@
 // Write a message to the console.
-const addressFactory = (name, surname, phoneNumber, address) => {
+const contactFactory = (name, surname, phoneNumber, address) => {
     return {
         name: name,
         surname: surname,
@@ -31,9 +31,38 @@ function search() {
 
 $(document).ready(function () {
 
-    let id = 0;
 
-    function addContact(name, surname, phone, address, id) {
+    function validationOfContact(name, surname, phone) {
+
+        let pattern = "^([0-9\(\)\/\+ \-]*)$";
+
+        if (name === '') { alert("Add name."); }
+
+        if (surname === '') { alert("Add surname."); }
+
+        if (!phone.match(pattern)) {
+            alert("Add phone number.");
+        }
+
+
+        for (let i = 0; i < contacts.length; i++) {
+            if (name.toLowerCase() === contacts[i].name.toLowerCase()
+                && surname.toLowerCase() === contacts[i].surname.toLowerCase()) {
+                alert(`${name} ${surname} already is in your Address Book.`)
+                return false;
+            }
+        }
+
+
+        if (name !== '' && surname !== '' && phone.match(pattern)) {
+            return true;
+        }
+
+        return false;
+    };
+
+
+    function addContact(name, surname, phone, address) {
 
         let contact = '<section class="element contact" > <p>' + name + ' ' + surname +
             '</p> <p>' + phone + '</p><p>' + address +
@@ -41,9 +70,9 @@ $(document).ready(function () {
 
         $('#contacts').append(contact);
 
-        let newContact = addressFactory(name, surname, phone, address);
+        let newContact = contactFactory(name, surname, phone);
         contacts.push(newContact);
-        // console.log(contacts);
+        console.log(contacts);
     };
 
 
@@ -54,7 +83,7 @@ $(document).ready(function () {
     })
 
 
-    $('#add-button').on('click', function (event) {
+    $('#add-button').on('click', function add(event) {
         event.preventDefault();
 
         let $name = $("#name");
@@ -70,11 +99,13 @@ $(document).ready(function () {
         let addressInput = $address.val();
 
 
-        addContact(nameInput, surnameInput, phoneInput, addressInput, ++id);
+        if (validationOfContact(nameInput, surnameInput, phoneInput, addressInput)) {
 
-        document.getElementById("contact-form").reset();
+            addContact(nameInput, surnameInput, phoneInput, addressInput);
+            document.getElementById("contact-form").reset();
+            $('#add-contact').slideUp(400);
+        }
 
-        $('#add-contact').slideUp(300);
     });
 
 
