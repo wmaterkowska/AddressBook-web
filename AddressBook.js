@@ -27,7 +27,6 @@ function search() {
 
 };
 
-// $('#add-contact').hide();
 
 $(document).ready(function () {
 
@@ -121,6 +120,8 @@ $(document).ready(function () {
     $("#contacts").on('click', '#delete', function () {
 
         $(this).parents('section').remove();
+
+
     });
 
 
