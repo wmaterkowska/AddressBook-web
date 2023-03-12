@@ -27,7 +27,6 @@ function search() {
 
 };
 
-// $('#add-contact').hide();
 
 $(document).ready(function () {
 
@@ -62,8 +61,9 @@ $(document).ready(function () {
 
     function addContact(name, surname, phone, address) {
 
-        let contact = '<section class="element contact" > <p>' + name + ' ' + surname +
-            '</p> <p>' + phone + '</p><p>' + address +
+        let contact = '<section class="element contact" > <button id="name-surname">' + name + ' ' + surname +
+            '</button> <p id="contact-phone">' + phone +
+            '</p><p id="contact-address">' + address +
             '</p>  <button id="delete">Delete</button> </section>'
 
         $('#contacts').append(contact);
@@ -74,7 +74,7 @@ $(document).ready(function () {
     };
 
 
-    $('#show-contact-form').on('click', function (event) {
+    $('#show-contact-form-button').on('click', function (event) {
         event.preventDefault();
 
         $('#add-contact').slideToggle(200);
@@ -107,9 +107,20 @@ $(document).ready(function () {
     });
 
 
+
+    $("#contacts").on('click', '#name-surname', function () {
+
+        $(this).parents('section').children('p').toggle();
+        $(this).parents('section').children('#delete').toggle();
+
+    });
+
+
+
     $("#contacts").on('click', '#delete', function () {
 
         $(this).parents('section').remove();
+
 
     });
 
