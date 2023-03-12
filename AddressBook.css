@@ -19,8 +19,13 @@ header {
 
 h1 {
     white-space: nowrap;
-    font-weight: lighter;
     text-align: center;
+}
+
+#searchbar {
+    width: inherit;
+    margin-right: 5px;
+    border: 0;
 }
 
 main {
@@ -38,23 +43,67 @@ main {
 }
 
 
-#add-button {
+#show-contact-form {
     width: 350px;
+    border: 0;
+    background-color: white;
+}
+
+#add-contact {
+    display: none;
+
+}
+
+label {
+    font-size: 80%;
+}
+
+input,
+textarea {
+    border: #5D868D 2px solid;
+    width: 345px;
+    margin-bottom: 2%;
+}
+
+input:focus,
+textarea:focus {
+    outline: #5D868D;
+}
+
+::placeholder {
+    color: #5D868D;
+}
+
+#add-button,
+#add-button input {
+    margin: auto;
+    background-color: white;
+    color: #5D868D;
+    font-weight: bold;
+}
+
+#add-button {
+    width: 55px;
+    position: relative;
+    left: 293px;
+    border: #5D868D 2px solid;
 }
 
 #add-input {
+    width: 45px;
     border: 0;
-}
-
-
-
-.contact p {
-    color: blueviolet;
+    margin: 0;
+    padding: 0;
 }
 
 #delete {
     position: relative;
     left: 300px;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border: #5D868D 2px solid;
+    color: #5D868D;
 }
 
 /*

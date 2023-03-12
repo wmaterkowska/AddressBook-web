@@ -27,6 +27,7 @@ function search() {
 
 };
 
+// $('#add-contact').hide();
 
 $(document).ready(function () {
 
@@ -36,9 +37,7 @@ $(document).ready(function () {
 
         let contact = '<section class="element contact" > <p>' + name + ' ' + surname +
             '</p> <p>' + phone + '</p><p>' + address +
-            '</p>  <button id="delete">delete</button> </section>'
-        let $contact = $(contact);
-        $contact.attr("class", "contact");
+            '</p>  <button id="delete">Delete</button> </section>'
 
         $('#contacts').append(contact);
 
@@ -48,8 +47,11 @@ $(document).ready(function () {
     };
 
 
+    $('#show-contact-form').on('click', function (event) {
+        event.preventDefault();
 
-
+        $('#add-contact').slideDown(200);
+    })
 
 
     $('#add-button').on('click', function (event) {
@@ -70,8 +72,9 @@ $(document).ready(function () {
 
         addContact(nameInput, surnameInput, phoneInput, addressInput, ++id);
 
-        document.getElementById("address-form").reset();
+        document.getElementById("contact-form").reset();
 
+        $('#add-contact').slideUp(300);
     });
 
 
