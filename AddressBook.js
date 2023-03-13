@@ -61,14 +61,15 @@ $(document).ready(function () {
 
     function addContact(name, surname, phone, address) {
 
-        let contact = '<section class="element contact" > <button id="name-surname">' + name + ' ' + surname +
-            '</button> <p id="contact-phone">' + phone +
-            '</p><p id="contact-address">' + address +
+        let contact = '<section class="element contact" > <button id="name-surname"><dfn class=contact-label>Name: </dfn>'
+            + name + ' <dfn class= contact-label> Surname: </dfn>' + surname +
+            '</button> <p id="contact-phone"> Phone Number: ' + phone +
+            '</p><p id="contact-address"> Address: ' + address +
             '</p>  <button id="delete">Delete</button> </section>'
 
         $('#contacts').append(contact);
 
-        let newContact = contactFactory(name, surname, phone);
+        let newContact = contactFactory(name, surname, phone, address);
         contacts.push(newContact);
         console.log(contacts);
     };
@@ -111,17 +112,14 @@ $(document).ready(function () {
     $("#contacts").on('click', '#name-surname', function () {
 
         $(this).parents('section').children('p').toggle();
+        $(this).parents('section').children('button').children('.contact-label').toggle();
         $(this).parents('section').children('#delete').toggle();
-
     });
-
 
 
     $("#contacts").on('click', '#delete', function () {
 
         $(this).parents('section').remove();
-
-
     });
 
 
