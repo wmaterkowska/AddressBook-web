@@ -139,9 +139,11 @@ textarea:focus {
 }
 
 .contact-label {
-    display: none;
+    font-style: normal;
+    font-size: 80%;
 }
 
+.contact-label,
 #contact-phone,
 #contact-address,
 #delete {

@@ -61,8 +61,8 @@ $(document).ready(function () {
 
     function addContact(name, surname, phone, address) {
 
-        let contact = '<section class="element contact" > <button id="name-surname"><p class=contact-label>Name: </p>'
-            + name + ' <p class= contact-label> Surname: </p>' + surname +
+        let contact = '<section class="element contact" > <button id="name-surname"><dfn class=contact-label>Name: </dfn>'
+            + name + ' <dfn class= contact-label> Surname: </dfn>' + surname +
             '</button> <p id="contact-phone"> Phone Number: ' + phone +
             '</p><p id="contact-address"> Address: ' + address +
             '</p>  <button id="delete">Delete</button> </section>'
@@ -112,7 +112,7 @@ $(document).ready(function () {
     $("#contacts").on('click', '#name-surname', function () {
 
         $(this).parents('section').children('p').toggle();
-        $(this).parents('section').children('.contact-label').toggle();
+        $(this).parents('section').children('button').children('.contact-label').toggle();
         $(this).parents('section').children('#delete').toggle();
     });
 
