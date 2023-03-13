@@ -12,18 +12,18 @@ body {
 
 #background {
     background-color: #5D868D;
-    width: 400px;
+    width: 33%;
     height: 100vh;
     min-height: 100vh;
     position: fixed;
     top: 0;
     z-index: -100;
     left: 50%;
-    transform: translate(-47.5%, 0);
+    transform: translate(-50%, 0);
 }
 
 header {
-    width: fit-content;
+    width: 30%;
     align-self: center;
     align-content: center;
     font-size: 120%;
@@ -31,7 +31,6 @@ header {
 }
 
 h1 {
-    white-space: nowrap;
     text-align: center;
 }
 
@@ -48,14 +47,14 @@ h1 {
 }
 
 main {
-    width: fit-content;
+    width: 30%;
     align-self: center;
     margin: 0 auto;
     scroll-behavior: auto;
 }
 
 .element {
-    width: 350px;
+    width: 95%;
     background: white;
     margin: 1.5%;
     padding: 1.5%;
@@ -67,7 +66,7 @@ main {
 }
 
 #show-contact-form-button {
-    width: 350px;
+    width: 100%;
     border: 0;
     background-color: white;
     cursor: pointer;
@@ -84,7 +83,7 @@ main {
 input,
 textarea {
     border: #5D868D 2px solid;
-    width: 345px;
+    width: 95%;
     margin-bottom: 2%;
     white-space: pre-wrap;
 }
@@ -105,12 +104,13 @@ textarea:focus {
     color: #5D868D;
     font-weight: bold;
     cursor: pointer;
+    display: inline;
 }
 
 #add-button {
     width: 55px;
-    position: relative;
-    left: 293px;
+    position: sticky;
+    left: 81%;
     border: #5D868D 2px solid;
 }
 
@@ -122,8 +122,8 @@ textarea:focus {
 }
 
 #delete {
-    position: relative;
-    left: 300px;
+    position: sticky;
+    left: 87%;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -133,10 +133,9 @@ textarea:focus {
 }
 
 .contact p {
-    width: inherit;
+    width: 95%;
     overflow-wrap: break-word;
-    word-break: break-all;
-    white-space: pre;
+    white-space: pre-wrap;
     margin: 1%;
     font-size: 80%;
 }
@@ -154,7 +153,7 @@ textarea:focus {
 }
 
 #name-surname {
-    width: 345px;
+    width: 95%;
     background-color: white;
     border: 0;
     font-size: 90%;
@@ -179,10 +178,10 @@ a {
 #up {
     font-size: 300%;
     position: absolute;
-    right: 5px;
+    right: 1%;
     bottom: 0;
     background-color: #5D868D;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
 }
