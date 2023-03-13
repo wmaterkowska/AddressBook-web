@@ -35,13 +35,13 @@ $(document).ready(function () {
 
         let pattern = "^([0-9\(\)\/\+ \-]*)$";
 
-        if (name === '') { alert("Add name."); }
+        if (name === '') { alert("Name is mandatory."); }
 
-        if (surname === '') { alert("Add surname."); }
+        if (surname === '') { alert("Surname is mandatory."); }
 
-        if (!phone.match(pattern)) {
-            alert("Add phone number.");
-        }
+        if (phone === '') { alert("Phone Number is mandatory.") }
+
+        if (!phone.match(pattern)) { alert("Use: +xx xxx xxx xxx or +xx xxx-xxx-xxx format."); }
 
         for (let i = 0; i < contacts.length; i++) {
             if (name.toLowerCase() === contacts[i].name.toLowerCase()
