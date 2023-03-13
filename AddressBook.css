@@ -70,6 +70,7 @@ main {
     width: 350px;
     border: 0;
     background-color: white;
+    cursor: pointer;
 }
 
 #add-contact {
@@ -103,6 +104,7 @@ textarea:focus {
     background-color: white;
     color: #5D868D;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #add-button {
@@ -127,6 +129,7 @@ textarea:focus {
     background-color: white;
     border: #5D868D 2px solid;
     color: #5D868D;
+    cursor: pointer;
 }
 
 .contact p {
@@ -156,6 +159,7 @@ textarea:focus {
     border: 0;
     font-size: 90%;
     text-align: left;
+    cursor: pointer;
 }
 
 footer {
