@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         if (phone === '') { alert("Phone Number is mandatory.") }
 
-        if (!phone.match(pattern)) { alert("Use: +xx xxx xxx xxx or +xx xxx-xxx-xxx format."); }
+        if (!phone.match(pattern)) { alert("Use: +xx xxx xxx xxx format."); }
 
         for (let i = 0; i < contacts.length; i++) {
             if (name.toLowerCase() === contacts[i].name.toLowerCase()
@@ -62,10 +62,10 @@ $(document).ready(function () {
 
     function addContact(name, surname, phone, address) {
 
-        let contact = '<section class="element contact" > <button id="name-surname"><dfn class=contact-label>Name: </dfn>'
-            + name + ' <dfn class= contact-label> Surname: </dfn>' + surname +
-            '</button> <p id="contact-phone"> Phone: ' + phone +
-            '</p><p id="contact-address"> Address: ' + address +
+        let contact = '<section class="element contact" > <button id="name-surname"> <dfn class="contact-label">Name: </dfn>'
+            + name + ' <p class= "contact-label"></p><dfn class="contact-label"> Surname: </dfn>' + surname +
+            '</button> <p id="contact-phone"> Phone:  ' + phone +
+            '</p><p id="contact-address-label"> Address: </p><p id="contact-address">' + address +
             '</p>  <button id="delete">Delete</button> </section>'
 
         $('#contacts').append(contact);
