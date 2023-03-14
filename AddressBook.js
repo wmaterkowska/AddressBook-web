@@ -33,7 +33,8 @@ $(document).ready(function () {
 
     function validationOfContact(name, surname, phone) {
 
-        let pattern = "^([0-9\(\)\/\+ \-]*)$";
+        // let pattern = "^([0-9\(\)\/\+ \-]*)$";
+        let pattern = /\+[0-9]{2}\ [0-9]{3}\ [0-9]{3}\ [0-9]{3}/;
 
         if (name === '') { alert("Name is mandatory."); }
 
@@ -63,7 +64,7 @@ $(document).ready(function () {
 
         let contact = '<section class="element contact" > <button id="name-surname"><dfn class=contact-label>Name: </dfn>'
             + name + ' <dfn class= contact-label> Surname: </dfn>' + surname +
-            '</button> <p id="contact-phone"> Phone Number: ' + phone +
+            '</button> <p id="contact-phone"> Phone: ' + phone +
             '</p><p id="contact-address"> Address: ' + address +
             '</p>  <button id="delete">Delete</button> </section>'
 
