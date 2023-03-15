@@ -26,12 +26,12 @@ header {
     width: 30%;
     align-self: center;
     align-content: center;
-    font-size: 120%;
     margin: 2% auto;
 }
 
 h1 {
     text-align: center;
+    font-size: calc(2.8vw + 2.8vh);
 }
 
 #title {
@@ -136,20 +136,23 @@ textarea:focus {
     width: 95%;
     overflow-wrap: break-word;
     white-space: pre-wrap;
-    margin: 1%;
     font-size: 80%;
 }
 
 .contact-label {
     font-style: normal;
-    font-size: 80%;
+    font-weight: normal;
+    font-size: 85%;
+    margin: 3%;
 }
 
 .contact-label,
 #contact-phone,
+#contact-address-label,
 #contact-address,
 #delete {
     display: none;
+    margin: 2%;
 }
 
 #name-surname {
@@ -159,6 +162,12 @@ textarea:focus {
     font-size: 90%;
     text-align: left;
     cursor: pointer;
+    margin: 1%;
+}
+
+#contact-address {
+    margin-top: -4%;
+    margin-left: 72px;
 }
 
 footer {
