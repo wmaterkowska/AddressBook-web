@@ -33,6 +33,8 @@ header {
 h1 {
     text-align: center;
     font-size: calc(2.8vw + 2.8vh);
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 #title {
@@ -71,6 +73,8 @@ main {
     border: 0;
     background-color: white;
     cursor: pointer;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 #add-contact {
@@ -161,6 +165,8 @@ textarea:focus {
     text-align: left;
     cursor: pointer;
     margin: 1%;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 #contact-address {
