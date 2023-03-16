@@ -155,10 +155,6 @@ textarea:focus {
     margin: 2%;
 }
 
-#id {
-    display: none;
-}
-
 #name-surname {
     width: 95%;
     background-color: white;

@@ -1,8 +1,7 @@
 // Write a message to the console.
 
-const contactFactory = (id, name, surname, phoneNumber, address) => {
+const contactFactory = (name, surname, phoneNumber, address) => {
     return {
-        id: id,
         name: name,
         surname: surname,
         phoneNumber: phoneNumber,
@@ -33,6 +32,25 @@ function search() {
 $(document).ready(function () {
 
 
+    // reading from localStorage
+    function readFromLocalStorage() {
+        let contactsJson = localStorage.contacts;
+        if (contactsJson !== undefined) {
+            contacts = JSON.parse(contactsJson);
+        }
+
+        contacts.forEach(element => {
+            let nameContact = element.name;
+            let surnameContact = element.surname;
+            let phoneContact = element.phoneNumber;
+            let addressContact = element.address;
+
+            addContactCard(nameContact, surnameContact, phoneContact, addressContact);
+        });
+    };
+
+    readFromLocalStorage();
+
     function validationOfContact(name, surname, phone) {
 
         // let pattern = "^([0-9\(\)\/\+ \-]*)$";
@@ -62,24 +80,35 @@ $(document).ready(function () {
     };
 
 
-    let id = 0;
-    function addContact(id, name, surname, phone, address) {
 
-        let contact = '<section class="element contact" ><button id="name-surname"><p id="id">' + id + '</p> <dfn class="contact-label">Name: </dfn>'
+
+    function addContact(name, surname, phone, address) {
+
+        let newContact = contactFactory(name, surname, phone, address);
+
+        if (!contacts.includes(newContact)) {
+            addContactCard(name, surname, phone, address);
+
+            contacts.push(newContact);
+            console.log(contacts);
+        }
+
+        localStorage.contacts = JSON.stringify(contacts);
+        console.log(localStorage.contacts);
+    };
+
+    function addContactCard(name, surname, phone, address) {
+
+        let contact = '<section class="element contact" ><button id="name-surname"><dfn class="contact-label">Name: </dfn>'
             + name + ' <p class= "contact-label"></p><dfn class="contact-label"> Surname: </dfn>' + surname +
             '</button> <p id="contact-phone"> Phone:  ' + phone +
             '</p><p id="contact-address-label"> Address: </p><p id="contact-address">' + address +
             '</p>  <button id="delete">Delete</button> </section>'
 
         $('#contacts').append(contact);
-
-        let newContact = contactFactory(id, name, surname, phone, address);
-        contacts.push(newContact);
-        console.log(contacts);
-
-        // localStorage.id = 2;
-        // console.log(localStorage.id);
     };
+
+
 
 
     $('#show-contact-form-button').on('click', function (event) {
@@ -107,7 +136,7 @@ $(document).ready(function () {
 
         if (validationOfContact(nameInput, surnameInput, phoneInput, addressInput)) {
 
-            addContact(id++, nameInput, surnameInput, phoneInput, addressInput);
+            addContact(nameInput, surnameInput, phoneInput, addressInput);
             document.getElementById("contact-form").reset();
             $('#add-contact').slideUp(400);
         }
@@ -128,11 +157,15 @@ $(document).ready(function () {
 
         $(this).parents('section').remove();
 
-        let idToDelete = $(this).parents('section').text()[0];
-        // console.log(idToDelete);
-        let contactToDelete = contacts.find(element => element[0] === idToDelete);
+        let nameToDelete = $(this).parents('section').text().split(' ')[1];
+        let surnameToDelete = $(this).parents('section').text().split(' ')[4];
+
+        let contactToDelete = contacts.find(element => element.name === nameToDelete && element.surname === surnameToDelete);
         contacts.splice(contacts.indexOf(contactToDelete), 1);
         console.log(contacts);
+
+        localStorage.contacts = JSON.stringify(contacts);
+        console.log(localStorage.contacts);
 
     });
 
