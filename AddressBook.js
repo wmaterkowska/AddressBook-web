@@ -1,4 +1,5 @@
-// Write a message to the console.
+// git@github.com:wmaterkowska/AddressBook-web.git
+
 const contactFactory = (name, surname, phoneNumber, address) => {
     return {
         name: name,
@@ -11,7 +12,7 @@ const contactFactory = (name, surname, phoneNumber, address) => {
 let contacts = [];
 
 function search() {
-    // https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/
+    // found on: https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/
 
     let input = document.getElementById('searchbar').value;
     input = input.toLowerCase();
@@ -29,6 +30,25 @@ function search() {
 
 
 $(document).ready(function () {
+
+
+    // reading from localStorage
+    function readFromLocalStorage() {
+        let contactsJson = localStorage.contacts;
+        if (contactsJson !== undefined) {
+            contacts = JSON.parse(contactsJson);
+        }
+
+        contacts.forEach(element => {
+            let nameContact = element.name;
+            let surnameContact = element.surname;
+            let phoneContact = element.phoneNumber;
+            let addressContact = element.address;
+
+            addContactCard(nameContact, surnameContact, phoneContact, addressContact);
+        });
+    };
+    readFromLocalStorage();
 
 
     function validationOfContact(name, surname, phone) {
@@ -62,20 +82,33 @@ $(document).ready(function () {
 
     function addContact(name, surname, phone, address) {
 
-        let contact = '<section class="element contact" > <button id="name-surname"> <dfn class="contact-label">Name: </dfn>'
+        let newContact = contactFactory(name, surname, phone, address);
+
+        if (!contacts.includes(newContact)) {
+            addContactCard(name, surname, phone, address);
+
+            contacts.push(newContact);
+            console.log(contacts);
+        }
+
+        localStorage.contacts = JSON.stringify(contacts);
+        console.log(localStorage.contacts);
+    };
+
+
+    function addContactCard(name, surname, phone, address) {
+
+        let contact = '<section class="element contact" ><button id="name-surname"><dfn class="contact-label">Name: </dfn>'
             + name + ' <p class= "contact-label"></p><dfn class="contact-label"> Surname: </dfn>' + surname +
             '</button> <p id="contact-phone"> Phone:  ' + phone +
             '</p><p id="contact-address-label"> Address: </p><p id="contact-address">' + address +
             '</p>  <button id="delete">Delete</button> </section>'
 
         $('#contacts').append(contact);
-
-        let newContact = contactFactory(name, surname, phone, address);
-        contacts.push(newContact);
-        console.log(contacts);
     };
 
 
+    // buttons ==================================================================================
     $('#show-contact-form-button').on('click', function (event) {
         event.preventDefault();
 
@@ -99,7 +132,7 @@ $(document).ready(function () {
         let addressInput = $address.val();
 
 
-        if (validationOfContact(nameInput, surnameInput, phoneInput, addressInput)) {
+        if (validationOfContact(nameInput, surnameInput, phoneInput)) {
 
             addContact(nameInput, surnameInput, phoneInput, addressInput);
             document.getElementById("contact-form").reset();
@@ -107,7 +140,6 @@ $(document).ready(function () {
         }
 
     });
-
 
 
     $("#contacts").on('click', '#name-surname', function () {
@@ -121,6 +153,17 @@ $(document).ready(function () {
     $("#contacts").on('click', '#delete', function () {
 
         $(this).parents('section').remove();
+
+        let nameToDelete = $(this).parents('section').text().split(' ')[1];
+        let surnameToDelete = $(this).parents('section').text().split(' ')[4];
+
+        let contactToDelete = contacts.find(element => element.name === nameToDelete && element.surname === surnameToDelete);
+        contacts.splice(contacts.indexOf(contactToDelete), 1);
+        console.log(contacts);
+
+        localStorage.contacts = JSON.stringify(contacts);
+        console.log(localStorage.contacts);
+
     });
 
 
