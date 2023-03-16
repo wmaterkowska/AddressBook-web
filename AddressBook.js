@@ -1,5 +1,3 @@
-// Write a message to the console.
-
 const contactFactory = (name, surname, phoneNumber, address) => {
     return {
         name: name,
@@ -12,7 +10,7 @@ const contactFactory = (name, surname, phoneNumber, address) => {
 let contacts = [];
 
 function search() {
-    // https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/
+    // found on: https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/
 
     let input = document.getElementById('searchbar').value;
     input = input.toLowerCase();
@@ -48,8 +46,8 @@ $(document).ready(function () {
             addContactCard(nameContact, surnameContact, phoneContact, addressContact);
         });
     };
-
     readFromLocalStorage();
+
 
     function validationOfContact(name, surname, phone) {
 
@@ -80,8 +78,6 @@ $(document).ready(function () {
     };
 
 
-
-
     function addContact(name, surname, phone, address) {
 
         let newContact = contactFactory(name, surname, phone, address);
@@ -97,6 +93,7 @@ $(document).ready(function () {
         console.log(localStorage.contacts);
     };
 
+
     function addContactCard(name, surname, phone, address) {
 
         let contact = '<section class="element contact" ><button id="name-surname"><dfn class="contact-label">Name: </dfn>'
@@ -109,8 +106,7 @@ $(document).ready(function () {
     };
 
 
-
-
+    // buttons ==================================================================================
     $('#show-contact-form-button').on('click', function (event) {
         event.preventDefault();
 
@@ -134,7 +130,7 @@ $(document).ready(function () {
         let addressInput = $address.val();
 
 
-        if (validationOfContact(nameInput, surnameInput, phoneInput, addressInput)) {
+        if (validationOfContact(nameInput, surnameInput, phoneInput)) {
 
             addContact(nameInput, surnameInput, phoneInput, addressInput);
             document.getElementById("contact-form").reset();
@@ -142,7 +138,6 @@ $(document).ready(function () {
         }
 
     });
-
 
 
     $("#contacts").on('click', '#name-surname', function () {
